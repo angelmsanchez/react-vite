@@ -6,7 +6,9 @@
     "dev": "vite",
     "start": " npm run dev",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build:prod": "tsc && vite build --mode prod",
+    "serve": "npm run build && vite preview",
+    "serve:prod": "npm run build:prod && vite preview"
   },
   "dependencies": {
     "react": "^17.0.2",

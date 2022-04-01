@@ -5,6 +5,9 @@ import './App.scss'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [env] = useState(import.meta.env.VITE_EXAMPLE_VARIABLE)
+
+  console.log('env', env);
 
   return (
     <div className="App">
