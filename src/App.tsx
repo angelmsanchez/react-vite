@@ -1,47 +1,26 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 
-import logo from './logo.svg'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import './App.scss'
+const Home = lazy(() => import('./home/components/index/Home'));
+const Admin = lazy(() => import('./admin/components/index/Admin'));
 
 function App() {
-  const [count, setCount] = useState(0)
   const [env] = useState(import.meta.env.VITE_EXAMPLE_VARIABLE)
 
   console.log('env', env);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <BrowserRouter>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Admin />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
     </div>
   )
 }
