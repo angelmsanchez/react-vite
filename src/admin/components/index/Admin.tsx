@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import './Admin.scss';
-import logo from '../../../logo.svg'
+import logo from '../../../assets/react.svg'
 
 export default function Admin(): JSX.Element {
   const [count, setCount] = useState(0)

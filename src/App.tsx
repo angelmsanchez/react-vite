@@ -1,15 +1,14 @@
-import { lazy, Suspense, useState } from 'react'
+import { useState, Suspense, lazy } from "react";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import './App.scss'
-const Home = lazy(() => import('./home/components/index/Home'));
-const Admin = lazy(() => import('./admin/components/index/Admin'));
+import "./App.scss";
+const Home = lazy(() => import("./home/components/index/Home"));
+const Admin = lazy(() => import("./admin/components/index/Admin"));
 
 function App() {
-  const [env] = useState(import.meta.env.VITE_EXAMPLE_VARIABLE)
-
-  console.log('env', env);
+  const [env] = useState(import.meta.env.VITE_EXAMPLE_VARIABLE);
+  console.log("env", env);
 
   return (
     <div className="App">
@@ -22,7 +21,7 @@ function App() {
         </Suspense>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

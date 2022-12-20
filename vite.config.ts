@@ -1,16 +1,7 @@
-import { defineConfig, splitVendorChunkPlugin } from 'vite'
-import { visualizer } from 'rollup-plugin-visualizer'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
-export default ({ mode }) => {
-  return defineConfig({
-    plugins: [
-      react(),
-      visualizer(),
-      splitVendorChunkPlugin(),
-    ],
-    build: {
-      minify: mode === 'prod',
-    },
-  });
-}
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
