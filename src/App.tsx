@@ -1,6 +1,6 @@
 import { useState, Suspense, lazy } from "react";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import "./App.scss";
 const Home = lazy(() => import("./home/components/index/Home"));
@@ -13,6 +13,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Link to="/home">Home </Link>
+
+        <Link to="/"> Admin</Link>
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/home" element={<Home />} />
