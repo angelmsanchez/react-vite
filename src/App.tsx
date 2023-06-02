@@ -11,17 +11,20 @@ function App() {
   console.log("env", env);
 
   return (
-    <div className="App">
+    <div className="app">
       <BrowserRouter>
-        <Link to="/home">Home </Link>
-
-        <Link to="/"> Admin</Link>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/" element={<Admin />} />
-          </Routes>
-        </Suspense>
+        <header className="app__header">
+          <Link to="/home">Home </Link>
+          <Link to="/"> Admin</Link>
+        </header>
+        <main className="app__main">
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Admin />} />
+            </Routes>
+          </Suspense>
+        </main>
       </BrowserRouter>
     </div>
   );
