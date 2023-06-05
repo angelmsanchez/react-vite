@@ -8,7 +8,6 @@ const Admin = lazy(() => import("./admin/components/index/Admin"));
 
 function App() {
   const [env] = useState(import.meta.env.VITE_EXAMPLE_VARIABLE);
-  console.log("env", env);
 
   return (
     <div className="app">
@@ -16,6 +15,7 @@ function App() {
         <header className="app__header">
           <Link to="/home">Home </Link>
           <Link to="/"> Admin</Link>
+          {env}
         </header>
         <main className="app__main">
           <Suspense fallback={<div>Loading...</div>}>

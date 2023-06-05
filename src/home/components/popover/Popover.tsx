@@ -1,7 +1,8 @@
-import React from "react";
-import * as Popover from "@radix-ui/react-popover";
+import React from 'react';
 
-import "./Popover.scss";
+import * as Popover from '@radix-ui/react-popover';
+
+import './Popover.scss';
 
 const PopoverDemo = () => (
   <Popover.Root>

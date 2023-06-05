@@ -20,18 +20,33 @@
     }
   },
   "rules": {
-    // "no-unused-vars": [
-    //   "error",
-    //   {
-    //     "vars": "all",
-    //     "args": "after-used",
-    //     "ignoreRestSiblings": false
-    //   }
-    // ],
     "react/react-in-jsx-scope": "off",
     "react-hooks/exhaustive-deps": "off",
     "no-unused-vars": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always"
+      }
+    ],
+    "max-len": [
+      "error",
+      120,
+      2,
+      { "ignoreUrls": true, "ignoreRegExpLiterals": true, "ignoreStrings": true, "ignoreComments": true }
+    ],
+    "no-console": 1,
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+    "no-restricted-imports": ["error", "import1", "import2"],
     "@typescript-eslint/no-unused-vars": ["error"]
-    // "no-unused-vars": "off"
   }
 }

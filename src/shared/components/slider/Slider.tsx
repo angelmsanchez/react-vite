@@ -24,11 +24,12 @@ export function Slider(props: Props): JSX.Element {
   const changeStyle = () => {
     if (range && range.current) {
       const sliderValue = (+range.current.value * 100) / max;
-      range.current.style.background = `linear-gradient(to right, #d7192d ${sliderValue}%, transparent ${sliderValue}%)`;
+      range.current.style.background = 
+        `linear-gradient(to right, #d7192d ${sliderValue}%, transparent ${sliderValue}%)`;
     }
   };
 
-    useEffect(() => {
+  useEffect(() => {
     if (value) changeStyle();
   }, [value, max]);
 
