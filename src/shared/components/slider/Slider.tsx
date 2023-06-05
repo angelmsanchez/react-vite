@@ -1,6 +1,6 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, ChangeEvent } from 'react';
 
-import "./slider.scss";
+import './slider.scss';
 
 interface Props {
   disabled?: boolean;
@@ -14,46 +14,37 @@ interface Props {
 }
 
 export function Slider(props: Props): JSX.Element {
-  const {
-    disabled = false,
-    icon,
-    label = "",
-    max = 100,
-    min = 0,
-    step = 1,
-    value = 0,
-    onChangeValue,
-  } = props;
-  const range = useRef<any>(null);
+  const { disabled = false, icon, label = '', max = 100, min = 0, step = 1, value = 0, onChangeValue } = props;
+  const range = useRef<HTMLInputElement>(null);
 
-  const handleChange = (event: any) => {
-    if (onChangeValue) onChangeValue(event.target.value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (onChangeValue && event) onChangeValue(+event.target.value);
   };
 
   const changeStyle = () => {
-    if (range) {
-      const sliderValue = (range.current.value * 100) / max;
-      range.current.style.background = `linear-gradient(to right, #d7192d ${sliderValue}%, #fff ${sliderValue}%)`;
+    if (range && range.current) {
+      const sliderValue = (+range.current.value * 100) / max;
+      range.current.style.background = `linear-gradient(to right, #d7192d ${sliderValue}%, transparent ${sliderValue}%)`;
     }
   };
 
-  useEffect(() => {
+    useEffect(() => {
     if (value) changeStyle();
   }, [value, max]);
 
   return (
     <div className="ib-ng-input-container">
-      <div className="ib-input ib-ng-input">
+      <div className="ib-input">
         <label className="ib-input__label">
           {icon && <span className="material-symbols-outlined">{icon}</span>}
           {label}
         </label>
         <input
-          id="range"
-          ref={range}
           className="ib-input__input"
+          id="range"
           type="range"
           name="range"
+          ref={range}
           disabled={disabled}
           max={max}
           min={min}

@@ -8,6 +8,7 @@
     "build:watch": "tsc && vite build --watch",
     "build": "vite build --mode development",
     "dev": "vite",
+    "lint": "eslint . --ext .ts,.tsx",
     "preview": "vite preview",
     "serve:external": "http-server dist -p 3000 --cors -o",
     "serve:prod": "npm run build:prod && vite preview",
@@ -15,8 +16,16 @@
     "start": " npm run dev --host"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.4.0",
     "@radix-ui/react-popover": "1.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.5.0"
