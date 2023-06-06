@@ -17,7 +17,7 @@ export default function Home(): JSX.Element {
   const [sliderValue, setSliderValue] = useState<number>(0);
 
   return (
-    <section className="home">
+    <section className="home" role="note">
       <h2>Home Page</h2>
       <PopoverDemo />
       <h2>Example type Vite</h2>

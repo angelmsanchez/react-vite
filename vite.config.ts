@@ -10,9 +10,6 @@ export default defineConfig({
     checker({
       typescript: true,
     }),
-    // eslint({
-    //   lintOnStart: true,
-    // }),
     {
       ...eslint({
         lintOnStart: true,
@@ -30,4 +27,9 @@ export default defineConfig({
       enforce: 'post',
     },
   ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './tests/setup.js',
+  },
 });

@@ -12,9 +12,10 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <header className="app__header">
-          <Link to="/home">Home </Link>
-          <Link to="/"> Admin</Link>
+        <header className="app__header" >
+          Menu: 
+          <Link to="/home">Home</Link>
+          <Link to="/">Admin</Link>
           {env}
         </header>
         <main className="app__main">
